@@ -1,0 +1,22 @@
+html{
+    height: 100%;
+}
+body{
+    font-family: Lato;
+}
+.navbar-header{
+    float: left;
+    padding: 1%;
+    width: 100%;
+}
+.navbar-brand{
+    float: none;
+    font-size: 150%;
+}
+.title{
+    text-align: center;
+    color: darkcyan;
+}
+#notes{
+    margin-bottom: 3%;
+}

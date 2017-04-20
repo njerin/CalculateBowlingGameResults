@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Calculate Bowling Game Scores</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="CalculateBowlingGameScores.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="CalculateBowlingGameScores.js" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body ng-controller="ctrl">
+    <nav class="navbar navbar-default navbar-static-top">  
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <div class="title">Calculate Bowling Game Scores</div>
+          </div>
+        </div>        
+      </div>
+    </nav>
+    <div>{{hi}}</div>
+    <div id="notes" class="text-center">Enter Each Frame Score to be Calculated!</div>
+    <div>
+      <form role="form" class="text-center form-horizontal">
+        <div class="form-group row">
+          <label for="1" class="col-xs-4 control-label">Frame-1 Results:</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="1" placeholder="number" ng-model='frame.frame1a' required>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="1" placeholder="number" ng-model='frame.frame1b'>
+          </div>
+        </div>
+        <!--<div class="form-group row">
+          <label for="2" class="col-xs-4 control-label">Frame-2 Results:</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="2" placeholder="number" ng-model='frame.frame2a' required>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="2" placeholder="number" ng-model='frame.frame2b'>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="frame1" class="col-xs-4 control-label">Frame-3 Results:</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame3" placeholder="number" ng-model='frame.frame3a' required>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame3" placeholder="number" ng-model='frame.frame3b'>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="frame1" class="col-xs-4 control-label">Frame-4 Results:</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame4" placeholder="number" ng-model='frame.frame4a' required>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame4" placeholder="number" ng-model='frame.frame4b'>
+          </div>
+        </div>  
+        <div class="form-group row">
+          <label for="frame1" class="col-xs-4 control-label">Frame-5 Results:</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame5" placeholder="number" ng-model='frame.frame5a' required>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame5" placeholder="number" ng-model='frame.frame5b'>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="frame1" class="col-xs-4 control-label">Frame-6 Results:</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame6" placeholder="number" ng-model='frame.frame6a' required>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame6" placeholder="number" ng-model='frame.frame6b'>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="frame1" class="col-xs-4 control-label">Frame-7 Results:</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame7" placeholder="number" ng-model='frame.frame7a' required>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame7" placeholder="number" ng-model='frame.frame7b'>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="frame1" class="col-xs-4 control-label">Frame-8 Results:</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame8" placeholder="number" ng-model='frame.frame8a' required>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame8" placeholder="number" ng-model='frame.frame8b'>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="frame1" class="col-xs-4 control-label">Frame-9 Results:</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame9" placeholder="number" ng-model='frame.frame9a' required>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame9" placeholder="number" ng-model='frame.frame9b'>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="frame1" class="col-xs-4 control-label">Frame-10 Results:</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame10" placeholder="number" ng-model='frame.frame10a' required>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="frame10" placeholder="number" ng-model='frame.frame10b'>
+          </div>
+        </div>-->
+        <div class="form-group row">
+          <div class="text-center">
+            <input type="submit" value="Calculate Scores" class="btn btn-primary" ng-click="calculateScores(frame)">
+            <input type="submit" value="Clear Fields" class="btn btn-primary" ng-click="clearFields()">
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>  
+</html>
