@@ -1,49 +1,69 @@
 var app = angular.module('app', []);
     app.controller('ctrl', function($scope) {
         $scope.hi = "hi!!";
-        $scope.frame1;
-        $scope.frame2;
-        $scope.frame3;
-        $scope.frame4;
-        $scope.frame5;
-        $scope.frame6;
-        $scope.frame7;
-        $scope.frame8;
-        $scope.frame9;
-        $scope.frame10;
-        $scope.frame;
         $scope.frames;
-        //$scope.secondBowl = 0;
+        $scope.currentFrame;
+        $scope.ball1Score;
+        $scope.ball2Score
         $scope.frameScore;
+        
         $scope.calculateScores = function(frame1, frame2) {
-          //console.log($scope.frames);  
-          console.log($scope.frame1);
-          console.log($scope.frame2);
-//          console.log($scope.frame3);
-//          console.log($scope.frame4);
-//          console.log($scope.frame5);
-//          console.log($scope.frame6);
-//          console.log($scope.frame7);
-//          console.log($scope.frame8);
-//          console.log($scope.frame9);
-//          console.log($scope.frame10);
           $scope.frames = [frame1, frame2];
           for(var i=0; i<$scope.frames.length; i++){
-              $scope.frame = $scope.frames[i];
-              console.log($scope.frame);
-              console.log("Here!!!");
+              $scope.currentFrame = $scope.frames[i];
+              $scope.ball1 = $scope.currentFrame.ball1;
+              $scope.ball2 = $scope.currentFrame.ball2;
+              console.log('!!!!!!!!!');
+              console.log($scope.currentFrame);
+              console.log($scope.ball1);
+              console.log($scope.ball2);
+              if($scope.ball1==10){
+                  $scope.ball2 = null;
+                  console.log("Strike!!!");
+                  console.log($scope.ball2);
+                  $scope.ball1Score = $scope.ball1;
+                  $scope.frameScore = $scope.ball1Score;
+                  console.log($scope.frameScore);
+              } else{
+                  $scope.ball1Score = $scope.ball1;
+                  $scope.ball2Score = $scope.ball2;
+                  $scope.frameScore = +$scope.ball1Score + +$scope.ball2Score; 
+                  console.log($scope.frameScore);
+              }
+//              for(var j=0; j<$scope.currentFrame.length; j++){
+//                   
+//                    
+//                    $scope.ball1 = $scope.currentFrame[j];
+//                    console.log($scope.ball1);
+//              }
+//            $scope.currentFrame = $scope.frames[i];
+//            console.log('!!!!!!!!!');
+//            console.log($scope.currentFrame);
+//            //for(var j=0; j<$scope.currentFrame.length; j++) {
+//                $scope.ball1 = $scope.frame[i][j];
+//                console.log($scope.ball1);
+            //}
+            //$scope.ball1 = $scope.frames[i][j];
+//            $scope.ball2 = $scope.currentFrame[i+1];
+           //console.log($scope.ball1);
+//            console.log($scope.ball2);
+            
+            
+              //$scope.frame = $scope.frames[i];
+              //console.log($scope.frame);
+              //console.log("Here!!!");
 //              for(var j=0; j<$scope.frame.length; j++){
 //                  console.log("Here Again!!!");
 //                  console.log($scope.frame[j]);
 //              }
-              Object.keys($scope.frame).forEach(function(key){
-                console.log(key, $scope.frame[key]);
-                if($scope.frame[key]==10){
-                    console.log("Strike!!!");
-                    $scope.frame[key+1] = null;
-                    console.log($scope.frame[key+1]);
-                    $scope.frameScore == 10;
-                } 
+//              Object.keys($scope.frame).forEach(function(key){
+//                console.log(key, $scope.frame[key]);
+//                if($scope.frame[key]==10){
+//                    console.log("Strike!!!");
+//                    $scope.frame[key+1] = null;
+//                    console.log($scope.frame[key+1]);
+//                    $scope.frameScore == 10;
+//                } 
 //                else {
 //                    console.log($scope.frame.frame1a);
 //                    console.log($scope.frame.frame1b);
@@ -55,7 +75,7 @@ var app = angular.module('app', []);
 //                        console.log("Spare!");
 //                    }
 //                }
-              });
+              //});
 //              for(var j=0; j<$scope.frame.length; j++){
 //                  console.log("Here Again!!!");
 //                  console.log($scope.frame[j]);
