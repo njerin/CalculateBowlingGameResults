@@ -10,10 +10,10 @@ var app = angular.module('app', []);
         $scope.frameScore;
         $scope.framesScore = [];
         
-        $scope.calculateScores = function(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10) {
-          $scope.frames = [frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10];
-//        $scope.calculateScores = function(frame1, frame2, frame3) {
-//          $scope.frames = [frame1, frame2, frame3];
+//        $scope.calculateScores = function(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10) {
+//          $scope.frames = [frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10];
+        $scope.calculateScores = function(frame1, frame2) {
+          $scope.frames = [frame1, frame2];
           for(var i=0; i<$scope.frames.length; i++){
               console.log($scope.frames);
               $scope.currentFrame = $scope.frames[i];
@@ -41,6 +41,22 @@ var app = angular.module('app', []);
                       console.log("Spare!!!");
                   }
               }
+          };
+          $scope.totalScore();
+        };
+        $scope.totalScore = function() {  
+            for(var i=0; i<$scope.framesScore.length; i++){
+                console.log("Total Score!");
+                console.log($scope.framesScore);
+                $scope.eachFrameScore = $scope.framesScore[i];
+                console.log($scope.eachFrameScore);
+                $scope.firstElement = $scope.eachFrameScore[0];
+                $scope.secondElement = $scope.eachFrameScore[1];
+                console.log($scope.firstElement);
+                console.log($scope.secondElement);
+          };
+        };
+          
 //              for(var j=0; j<$scope.currentFrame.length; j++){
 //                   
 //                    
@@ -103,7 +119,7 @@ var app = angular.module('app', []);
 ////             }
 //             
 //            });
-          };
+          
           
 //          $scope.frames = $scope.frame;
 //          console.log($scope.frames);
@@ -167,7 +183,7 @@ var app = angular.module('app', []);
 //                    console.log($scope.frame.frame1b);
 //                }
 //            }            
-        };
+        
 });
 
 
