@@ -3,13 +3,19 @@ var app = angular.module('app', []);
         $scope.hi = "hi!!";
         $scope.frames;
         $scope.currentFrame;
+        $scope.ball1;
+        $scope.ball2;
         $scope.ball1Score;
-        $scope.ball2Score
+        $scope.ball2Score;
         $scope.frameScore;
+        $scope.framesScore = [];
         
-        $scope.calculateScores = function(frame1, frame2) {
-          $scope.frames = [frame1, frame2];
+        $scope.calculateScores = function(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10) {
+          $scope.frames = [frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10];
+//        $scope.calculateScores = function(frame1, frame2, frame3) {
+//          $scope.frames = [frame1, frame2, frame3];
           for(var i=0; i<$scope.frames.length; i++){
+              console.log($scope.frames);
               $scope.currentFrame = $scope.frames[i];
               $scope.ball1 = $scope.currentFrame.ball1;
               $scope.ball2 = $scope.currentFrame.ball2;
@@ -22,13 +28,18 @@ var app = angular.module('app', []);
                   console.log("Strike!!!");
                   console.log($scope.ball2);
                   $scope.ball1Score = $scope.ball1;
-                  $scope.frameScore = $scope.ball1Score;
-                  console.log($scope.frameScore);
+                  $scope.framesScore.push([$scope.ball1Score]);
+                  console.log($scope.framesScore);
               } else{
                   $scope.ball1Score = $scope.ball1;
                   $scope.ball2Score = $scope.ball2;
+                  $scope.framesScore.push([$scope.ball1Score, $scope.ball2Score]);
+                  console.log($scope.framesScore);
                   $scope.frameScore = +$scope.ball1Score + +$scope.ball2Score; 
                   console.log($scope.frameScore);
+                  if($scope.frameScore==10) {
+                      console.log("Spare!!!");
+                  }
               }
 //              for(var j=0; j<$scope.currentFrame.length; j++){
 //                   
