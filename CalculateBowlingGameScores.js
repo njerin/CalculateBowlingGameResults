@@ -10,11 +10,13 @@ var app = angular.module('app', []);
         $scope.frameScore;
         $scope.framesScore = [];
         $scope.scores = [];
+        $scope.second;
+        $scope.third;
         
 //        $scope.calculateScores = function(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10) {
 //          $scope.frames = [frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10];
-        $scope.calculateScores = function(frame1, frame2) {
-          $scope.frames = [frame1, frame2];
+        $scope.calculateScores = function(frame1, frame2, frame3) {
+          $scope.frames = [frame1, frame2, frame3];
           for(var i=0; i<$scope.frames.length; i++){
               console.log($scope.frames);
               $scope.currentFrame = $scope.frames[i];
@@ -47,48 +49,57 @@ var app = angular.module('app', []);
         };
         
         $scope.totalScore = function() {  
+            console.log("TotalScoreFunction!!!");
             Object.keys($scope.framesScore).forEach(function(key){
                 console.log("Total Score!");
                 console.log(key, $scope.framesScore[key]);
                 $scope.firstElement = $scope.framesScore[key][0];                
                 $scope.secondElement = $scope.framesScore[key][1];
+                $scope.second = $scope.framesScore[1];
+                console.log("Secondddddddd");
+                console.log($scope.second);
+                console.log($scope.framesScore[key+1]);
+                $scope.third = $scope.framesScore[key+2];
                 $scope.totalFrameScore = +$scope.firstElement + +$scope.secondElement; 
                 if($scope.firstElement == 10) {
-                    console.log("Strike in the Score!");                    
-                    if($scope.framesScore[key+1][0]==10) {
-                        if($scope.framesScore[key+2][0]==10) {
-                            $scope.scores.push($scope.firstElement);
-                            $scope.scores.push($scope.framesScore[key+1][0]);
-                            $scope.scores.push($scope.framesScore[key+2][0]);
-                            console.log('11111111111111111');
-                            console.log($scope.scores);
-                        }
-                        $scope.scores.push($scope.firstElement);
-                        $scope.scores.push($scope.framesScore[key+1][0]);
-                        $scope.scores.push($scope.framesScore[key+1][1]);
-                        console.log('22222222222222222');
-                        console.log($scope.scores);
+                    console.log("Strike in the Score!");
+                    console.log($scope.second[0]);
+                    if($scope.second[0]==10) {
+                        console.log("message 1");
+//                        if($scope.framesScore[key+2][0]==10) {
+//                            console.log("message 2");
+////                            $scope.scores.push($scope.firstElement);
+////                            $scope.scores.push($scope.framesScore[key+1][0]);
+////                            $scope.scores.push($scope.framesScore[key+2][0]);
+////                            console.log('11111111111111111');
+////                            console.log($scope.scores);
+//                        }
+//                        $scope.scores.push($scope.firstElement);
+//                        $scope.scores.push($scope.framesScore[key+1][0]);
+//                        $scope.scores.push($scope.framesScore[key+1][1]);
+//                        console.log('22222222222222222');
+//                        console.log($scope.scores);
                     } 
-                    $scope.scores.push($scope.firstElement);
-                    $scope.scores.push($scope.framesScore[key+1][0]);
-                    $scope.scores.push($scope.framesScore[key+1][1]);
-                    console.log('3333333333333333333333333');
-                    console.log($scope.scores);
+//                    $scope.scores.push($scope.firstElement);
+//                    $scope.scores.push($scope.framesScore[key+1][0]);
+//                    $scope.scores.push($scope.framesScore[key+1][1]);
+//                    console.log('3333333333333333333333333');
+//                    console.log($scope.scores);
                     
                 }
 //                else {            
 //                        $scope.addTwoBallsScore = +$scope.framesScore[key+1][0] + $scope.framesScore[key+1][1];
 //                    }
-                else if($scope.totalFrameScore == 10 ) {
-                    console.log("Spare in the Score!");
-                    $scope.scores.push($scope.framesScore[key+1][0]);
-                    console.log('4444444444444444444');
-                    console.log($scope.scores);
-                } else {
-                    $scope.scores.push($scope.framesScore[key]);
-                    console.log('55555555555555555555');
-                    console.log($scope.scores);
-                }
+//                else if($scope.totalFrameScore == 10 ) {
+//                    console.log("Spare in the Score!");
+//                    $scope.scores.push($scope.framesScore[key+1][0]);
+//                    console.log('4444444444444444444');
+//                    console.log($scope.scores);
+//                } else {
+//                    $scope.scores.push($scope.framesScore[key]);
+//                    console.log('55555555555555555555');
+//                    console.log($scope.scores);
+//                }
                 
           });
 //            for(var i=0; i<$scope.framesScore.length; i++){
