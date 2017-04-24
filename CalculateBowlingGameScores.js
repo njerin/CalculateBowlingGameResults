@@ -9,6 +9,7 @@ var app = angular.module('app', []);
         $scope.ball2Score;
         $scope.frameScore;
         $scope.framesScore = [];
+        $scope.scores = [];
         
 //        $scope.calculateScores = function(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10) {
 //          $scope.frames = [frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10];
@@ -56,20 +57,37 @@ var app = angular.module('app', []);
                     console.log("Strike in the Score!");                    
                     if($scope.framesScore[key+1][0]==10) {
                         if($scope.framesScore[key+2][0]==10) {
-                            $scope.framesScore[key+1][0];
-                            $scope.framesScore[key+2][0];
+                            $scope.scores.push($scope.firstElement);
+                            $scope.scores.push($scope.framesScore[key+1][0]);
+                            $scope.scores.push($scope.framesScore[key+2][0]);
+                            console.log('11111111111111111');
+                            console.log($scope.scores);
                         }
-                        $scope.framesScore[key+1][0];
-                        $scope.framesScore[key+1][1];
+                        $scope.scores.push($scope.firstElement);
+                        $scope.scores.push($scope.framesScore[key+1][0]);
+                        $scope.scores.push($scope.framesScore[key+1][1]);
+                        console.log('22222222222222222');
+                        console.log($scope.scores);
                     } 
-                    else {            
-                        $scope.addTwoBallsScore = +$scope.framesScore[key+1][0] + $scope.framesScore[key+1][1];
-                    }
-                } else if($scope.totalFrameScore == 10 ) {
+                    $scope.scores.push($scope.firstElement);
+                    $scope.scores.push($scope.framesScore[key+1][0]);
+                    $scope.scores.push($scope.framesScore[key+1][1]);
+                    console.log('3333333333333333333333333');
+                    console.log($scope.scores);
+                    
+                }
+//                else {            
+//                        $scope.addTwoBallsScore = +$scope.framesScore[key+1][0] + $scope.framesScore[key+1][1];
+//                    }
+                else if($scope.totalFrameScore == 10 ) {
                     console.log("Spare in the Score!");
-                    $scope.framesScore[key+1][0];
+                    $scope.scores.push($scope.framesScore[key+1][0]);
+                    console.log('4444444444444444444');
+                    console.log($scope.scores);
                 } else {
-                    $scope.framesScore[key];
+                    $scope.scores.push($scope.framesScore[key]);
+                    console.log('55555555555555555555');
+                    console.log($scope.scores);
                 }
                 
           });
