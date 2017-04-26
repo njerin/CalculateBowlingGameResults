@@ -65,18 +65,20 @@ var app = angular.module('app', []);
                            $scope.newScores.push($scope.framesScore[i+2][0]);
                            console.log('New Score 11111111111111111');
                            console.log($scope.newScores);
-                       }
-                       $scope.newScores.push($scope.framesScore[i][0]);
-                       $scope.newScores.push($scope.framesScore[i+1][0]);
-                       $scope.newScores.push($scope.framesScore[i+1][1]);
-                       console.log('New Score 222222222222222222');
-                       console.log($scope.newScores);
-                   }   
-                   $scope.newScores.push($scope.framesScore[i][0]);
-                   $scope.newScores.push($scope.framesScore[i+1][0]);
-                   $scope.newScores.push($scope.framesScore[i+1][1]);
-                   console.log('New Score 33333333333333333333');
-                   console.log($scope.newScores);
+                       } else {
+                           $scope.newScores.push($scope.framesScore[i][0]);
+                           $scope.newScores.push($scope.framesScore[i+1][0]);
+                           $scope.newScores.push($scope.framesScore[i+1][1]);
+                           console.log('New Score 222222222222222222');
+                          console.log($scope.newScores);
+                       }                       
+                   } else {   
+                        $scope.newScores.push($scope.framesScore[i][0]);
+                        $scope.newScores.push($scope.framesScore[i+1][0]);
+                        $scope.newScores.push($scope.framesScore[i+1][1]);
+                        console.log('New Score 33333333333333333333');
+                        console.log($scope.newScores);
+                   }
                }
             }
 //            Object.keys($scope.framesScore).forEach(function(key){
