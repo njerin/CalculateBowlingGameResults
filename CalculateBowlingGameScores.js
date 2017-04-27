@@ -13,6 +13,7 @@ var app = angular.module('app', []);
         $scope.newScores = [];
         $scope.second;
         $scope.third;
+        $scope.finalPoints = 0;
         
 //        $scope.calculateScores = function(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10) {
 //          $scope.frames = [frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10];
@@ -57,6 +58,7 @@ var app = angular.module('app', []);
                console.log($scope.framesScore[i]); 
                console.log($scope.framesScore[i+1]);
                console.log($scope.framesScore[i+2]);
+               $scope.addTwoBalls = +$scope.framesScore[i][0] + +$scope.framesScore[i][1];
                if($scope.framesScore[i][0]==10) {
                    if($scope.framesScore[i+1][0]==10) {
                        if($scope.framesScore[i+2][0]==10) {
@@ -79,8 +81,39 @@ var app = angular.module('app', []);
                         console.log('New Score 33333333333333333333');
                         console.log($scope.newScores);
                    }
+               } else if($scope.addTwoBalls==10) {
+                   $scope.newScores.push($scope.framesScore[i]);
+                   $scope.newScores.push($scope.framesScore[i+1][0]);
+                   console.log('New Score 444444444444444444');
+                   console.log($scope.newScores);
+               } else {
+                   $scope.newScores.push($scope.framesScore[i]);
+                   console.log('New Score 555555555555555555');
+                   console.log($scope.newScores);
                }
             }
+            $scope.finalScore();
+        };
+        $scope.finalScore = function() {
+            console.log("Final Scores!!!");
+            for(i=0; i<$scope.newScores.length; i++) {
+//                if($scope.newScores[i][0] && $scope.newScores[i][1]){
+//                    $scope.twoPoints = + parseInt($scope.newScores[i][0]) + + parseInt($scope.newScores[i][1]);
+//                    $scope.finalPoints += $scope.twoPoints;
+//                    console.log("Adddd double Value");
+//                    console.log($scope.newScores[i][0]);
+//                    console.log($scope.newScores[i][1]);
+//                    console.log($scope.twoPoints);
+//                    console.log($scope.finalPoints);
+//                } else {
+                    $scope.finalPoints += + parseInt($scope.newScores[i]);
+                    console.log("Adding single value at a time");
+                    console.log($scope.newScores[i]);
+                    console.log($scope.finalPoints);
+                    
+//                }
+            }
+        };
 //            Object.keys($scope.framesScore).forEach(function(key){
 //                console.log("Total Score!");
 //                console.log(key, $scope.framesScore[key]);
@@ -162,7 +195,7 @@ var app = angular.module('app', []);
 ////                console.log($scope.firstElement);
 ////                console.log($scope.secondElement);
 ////          };
-        };
+        //};
           
 //              for(var j=0; j<$scope.currentFrame.length; j++){
 //                   
