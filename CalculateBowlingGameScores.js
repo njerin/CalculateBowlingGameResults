@@ -82,12 +82,14 @@ var app = angular.module('app', []);
                         console.log($scope.newScores);
                    }
                } else if($scope.addTwoBalls==10) {
-                   $scope.newScores.push($scope.framesScore[i]);
+                   $scope.newScores.push($scope.framesScore[i][0]);
+                   $scope.newScores.push($scope.framesScore[i][1]);
                    $scope.newScores.push($scope.framesScore[i+1][0]);
                    console.log('New Score 444444444444444444');
                    console.log($scope.newScores);
                } else {
-                   $scope.newScores.push($scope.framesScore[i]);
+                   $scope.newScores.push($scope.framesScore[i][0]);
+                   $scope.newScores.push($scope.framesScore[i][1]);
                    console.log('New Score 555555555555555555');
                    console.log($scope.newScores);
                }
