@@ -1,5 +1,5 @@
 var app = angular.module('app', []);
-    app.controller('ctrl', function($scope) {
+    app.controller('ctrl', function($scope, _) {
         $scope.hi = "hi!!";
         $scope.frames;
         $scope.currentFrame;
@@ -14,6 +14,7 @@ var app = angular.module('app', []);
         $scope.second;
         $scope.third;
         $scope.finalPoints = 0;
+        $scope._ = _;
         
 //        $scope.calculateScores = function(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10) {
 //          $scope.frames = [frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10];
@@ -98,23 +99,26 @@ var app = angular.module('app', []);
         };
         $scope.finalScore = function() {
             console.log("Final Scores!!!");
-            for(i=0; i<$scope.newScores.length; i++) {
-//                if($scope.newScores[i][0] && $scope.newScores[i][1]){
-//                    $scope.twoPoints = + parseInt($scope.newScores[i][0]) + + parseInt($scope.newScores[i][1]);
-//                    $scope.finalPoints += $scope.twoPoints;
-//                    console.log("Adddd double Value");
-//                    console.log($scope.newScores[i][0]);
-//                    console.log($scope.newScores[i][1]);
-//                    console.log($scope.twoPoints);
-//                    console.log($scope.finalPoints);
-//                } else {
-                    $scope.finalPoints += + parseInt($scope.newScores[i]);
-                    console.log("Adding single value at a time");
-                    console.log($scope.newScores[i]);
+            $scope.finalPoints = _.sum($scope.newScores);
+//            for(var i=0; i<$scope.newScores.length; i++) {
+////                if($scope.newScores[i][0] && $scope.newScores[i][1]){
+////                    $scope.twoPoints = + parseInt($scope.newScores[i][0]) + + parseInt($scope.newScores[i][1]);
+////                    $scope.finalPoints += $scope.twoPoints;
+////                    console.log("Adddd double Value");
+////                    console.log($scope.newScores[i][0]);
+////                    console.log($scope.newScores[i][1]);
+////                    console.log($scope.twoPoints);
+////                    console.log($scope.finalPoints);
+////                } else {
+//                    $scope.finalPoints += parseInt($scope.newScores[i]);
+//                    console.log("Adding single value at a time");
+//                    console.log($scope.newScores[i]);
                     console.log($scope.finalPoints);
-                    
-//                }
-            }
+                    alert($scope.finalPoints);
+//                    
+//                    
+////                }
+//            }
         };
 //            Object.keys($scope.framesScore).forEach(function(key){
 //                console.log("Total Score!");
