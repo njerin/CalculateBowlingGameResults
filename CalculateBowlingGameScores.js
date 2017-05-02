@@ -18,10 +18,21 @@ var app = angular.module('app', []);
         
 //        $scope.calculateScores = function(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10) {
 //          $scope.frames = [frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10];
-        $scope.calculateScores = function(frame1, frame2, frame3) {
-          $scope.frames = [frame1, frame2, frame3];
+        $scope.calculateScores = function(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, frame11, frame12) {
+          $scope.frames = [frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, frame11, frame12];
+//          for(var i=0; i<$scope.frames.length; i++){
+//              if($scope.frames[i]!=='undefined'){
+//                  alert('undefined');
+//              };
+//          }
+          console.log("All 12 frames!");
+          console.log($scope.frames);
           for(var i=0; i<$scope.frames.length; i++){
-              console.log($scope.frames);
+              console.log($scope.frames[i]);
+            if($scope.frames[i]=="undefined" || $scope.frames[i]==null || ($scope.frames[i].ball1=="" && $scope.frames[i].ball2=="")){
+                console.log("?????????????????????");
+                console.log("undefined?????????");
+            } else {
               $scope.currentFrame = $scope.frames[i];
               $scope.ball1 = $scope.currentFrame.ball1;
               $scope.ball2 = $scope.currentFrame.ball2;
@@ -47,13 +58,39 @@ var app = angular.module('app', []);
                       console.log("Spare!!!");
                   }
               }
+            }
+//              $scope.currentFrame = $scope.frames[i];
+//              $scope.ball1 = $scope.currentFrame.ball1;
+//              $scope.ball2 = $scope.currentFrame.ball2;
+//              console.log('!!!!!!!!!');
+//              console.log($scope.currentFrame);
+//              console.log($scope.ball1);
+//              console.log($scope.ball2);
+//              if($scope.ball1==10){
+//                  //$scope.ball2 = null;
+//                  console.log("Strike!!!");
+//                  console.log($scope.ball2);
+//                  $scope.ball1Score = $scope.ball1;
+//                  $scope.framesScore.push([$scope.ball1Score]);
+//                  console.log($scope.framesScore);
+//              } else{
+//                  $scope.ball1Score = $scope.ball1;
+//                  $scope.ball2Score = $scope.ball2;
+//                  $scope.framesScore.push([$scope.ball1Score, $scope.ball2Score]);
+//                  console.log($scope.framesScore);
+//                  $scope.frameScore = +$scope.ball1Score + +$scope.ball2Score; 
+//                  console.log($scope.frameScore);
+//                  if($scope.frameScore==10) {
+//                      console.log("Spare!!!");
+//                  }
+//              }
           };
           $scope.totalScore();
         };
         
         $scope.totalScore = function() {  
             console.log("TotalScoreFunction!!!");
-            console.log($scope.framesScore);
+            console.log($scope.framesScore);      
             for(var i=0; i<$scope.framesScore.length; i++) {
                console.log("Inside for loop in totalScore");
                console.log($scope.framesScore[i]); 
